@@ -42,8 +42,6 @@
 
 ## My approach
 
-1. **Start with the data.** Confirm ingestion and understand the fields before interpreting activity.
-2. **Add context.** Compare authentication outcomes, repeated attempts, and source behavior.
-3. **Make the finding useful.** Document the evidence and turn the investigation into reusable detection logic.
+<img src="assets/approach.png" width="100%" alt="Understand: read the data. Investigate: connect the clues. Document: write reusable steps.">
 
 ![Learn. Practice. Improve. — Majed Almabadi](assets/footer-growth.gif)
