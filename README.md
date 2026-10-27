@@ -36,4 +36,4 @@
 
 <img src="assets/approach.png" width="100%" alt="Understand: read the data. Investigate: connect the clues. Document: write reusable steps.">
 
-![Learn. Practice. Improve. — Majed Almabadi](assets/footer-growth.gif)
+![Learn. Practice. Improve.](assets/footer-growth.gif)
