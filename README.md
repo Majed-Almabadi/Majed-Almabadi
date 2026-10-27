@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/hero.png" width="100%" alt="Majed Almabadi — cybersecurity field notes. Making sense of the signals. Log analysis, threat hunting, and detection.">
+  <img src="assets/hero-graduate.gif" width="100%" alt="Majed Almabadi — recent graduate seeking an entry-level SOC L1, IT support, or help desk opportunity. Building skills. Ready to contribute.">
 </p>
 
 <p align="center">
@@ -8,11 +8,11 @@
   <a href="https://github.com/Majed-Almabadi/Detecting-SSH-Brute-Force-Attempts-with-Splunk/blob/main/Splunk_SSH_Analysis_Report.pdf"><b>Investigation report</b></a>
 </p>
 
-## From signal to evidence
+## About me
 
-I'm **Majed Almabadi**, and my current work explores cybersecurity through authentication logs, threat hunting, and detection in Splunk. I focus on connecting an observable signal to a clear finding and a repeatable search.
+I'm **Majed Almabadi**, a **recent graduate** seeking an entry-level role in **SOC (L1), IT support, or help desk**.
 
-![Investigation approach: observe SSH telemetry, investigate sources and authentication outcomes, and build repeatable SPL detection logic](assets/investigation-flow.gif)
+I'm developing my practical skills through hands-on labs and projects, with a focus on troubleshooting, networking, and cybersecurity fundamentals. I'm eager to learn from an experienced team and contribute to day-to-day support and security operations.
 
 ## Featured investigation
 
@@ -26,6 +26,8 @@ Investigated JSON-based SSH logs, reconstructed suspicious-source activity, and 
 
 `Splunk Enterprise` &nbsp; `SPL` &nbsp; `SSH` &nbsp; `JSON logs` &nbsp; `Ubuntu`
 
+![Investigation approach: observe SSH telemetry, investigate sources and authentication outcomes, and build repeatable SPL detection logic](assets/investigation-flow.gif)
+
 ## What I'm working with
 
 <img src="assets/toolkit.png" width="100%" alt="App icons grouped by area: Programming—Python; Linux environments—Kali Linux and Ubuntu; Network analysis and discovery—Wireshark and Nmap; Web testing and discovery—Burp Suite and Gobuster; Penetration testing—Metasploit.">
@@ -36,4 +38,4 @@ Investigated JSON-based SSH logs, reconstructed suspicious-source activity, and 
 2. **Add context.** Compare authentication outcomes, repeated attempts, and source behavior.
 3. **Make the finding useful.** Document the evidence and turn the investigation into reusable detection logic.
 
-![Less noise. More evidence. Majed — Cybersecurity.](assets/footer.png)
+![Learn. Practice. Improve. — Majed Almabadi](assets/footer-growth.gif)
