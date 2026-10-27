@@ -1,6 +1,6 @@
 # Toolkit icon sources
 
-The app icons in `../toolkit.gif` come from the Kali Linux icon collection mirrored at [l0gicx/kali-flat-icons](https://github.com/l0gicx/kali-flat-icons). The original SVG files and the collection's GPL-3.0 license are included in this directory. Icons were resized and composed into an animated grid; app names and trademarks belong to their respective owners. The toolkit GIF is distributed under GPL-3.0.
+The app icons in `../toolkit.png` come from the Kali Linux icon collection mirrored at [l0gicx/kali-flat-icons](https://github.com/l0gicx/kali-flat-icons). The original SVG files and the collection's GPL-3.0 license are included in this directory. Icons were resized and composed into a static table; app names and trademarks belong to their respective owners. The toolkit PNG is distributed under GPL-3.0.
 
 | Included source | Upstream file |
 | :--- | :--- |

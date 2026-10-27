@@ -28,7 +28,7 @@ Investigated JSON-based SSH logs, reconstructed suspicious-source activity, and 
 
 ## What I'm working with
 
-<img src="assets/toolkit.gif" width="100%" alt="App icons grouped by area: Programming—Python; Linux environments—Kali Linux and Ubuntu; Network analysis and discovery—Wireshark and Nmap; Web testing and discovery—Burp Suite and Gobuster; Penetration testing—Metasploit.">
+<img src="assets/toolkit.png" width="100%" alt="App icons grouped by area: Programming—Python; Linux environments—Kali Linux and Ubuntu; Network analysis and discovery—Wireshark and Nmap; Web testing and discovery—Burp Suite and Gobuster; Penetration testing—Metasploit.">
 
 ## How I approach a case
 
