@@ -34,8 +34,6 @@
   <img src="assets/ssh-case-notes.gif" width="100%" alt="Investigated JSON-based SSH logs, reconstructed suspicious-source activity, and documented eight SPL searches with screenshots. Source 10.0.0.25 had 174 failed authentication attempts and 16 successful logins. Tools: Splunk Enterprise, SPL, SSH, JSON logs, and Ubuntu.">
 </a>
 
-![Investigation approach: observe SSH telemetry, investigate sources and authentication outcomes, and build repeatable SPL detection logic](assets/investigation-flow.gif)
-
 ## Tools & technologies
 
 <img src="assets/toolkit.png" width="100%" alt="App icons grouped by area: Programming—Python; Linux environments—Kali Linux and Ubuntu; Network analysis and discovery—Wireshark and Nmap; Web testing and discovery—Burp Suite and Gobuster; Penetration testing—Metasploit.">
