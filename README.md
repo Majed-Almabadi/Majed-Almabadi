@@ -10,9 +10,7 @@
 
 ## About me
 
-I'm **Majed Almabadi**, a **recent graduate** seeking an entry-level role in **SOC (L1), IT support, or help desk**.
-
-I'm developing my practical skills through hands-on labs and projects, with a focus on troubleshooting, networking, and cybersecurity fundamentals. I'm eager to learn from an experienced team and contribute to day-to-day support and security operations.
+<img src="assets/about-terminal.gif" width="100%" alt="Majed Almabadi, recent graduate seeking an entry-level SOC L1, IT support, or help desk role. Building skills through hands-on labs and projects in troubleshooting, networking, and cybersecurity; eager to learn from a team and contribute to daily support and security operations.">
 
 ## Featured investigation
 
@@ -22,9 +20,9 @@ I'm developing my practical skills through hands-on labs and projects, with a fo
 
 **[SSH Authentication Log Analysis & Threat Hunting Using Splunk](https://github.com/Majed-Almabadi/Detecting-SSH-Brute-Force-Attempts-with-Splunk)**
 
-Investigated JSON-based SSH logs, reconstructed suspicious-source activity, and documented eight SPL searches with findings and supporting screenshots. The source investigation identified **174 failed authentication attempts** and **16 successful logins** from the same suspicious IP.
-
-`Splunk Enterprise` &nbsp; `SPL` &nbsp; `SSH` &nbsp; `JSON logs` &nbsp; `Ubuntu`
+<a href="https://github.com/Majed-Almabadi/Detecting-SSH-Brute-Force-Attempts-with-Splunk">
+  <img src="assets/ssh-case-notes.gif" width="100%" alt="Investigated JSON-based SSH logs, reconstructed suspicious-source activity, and documented eight SPL searches with screenshots. Source 10.0.0.25 had 174 failed authentication attempts and 16 successful logins. Tools: Splunk Enterprise, SPL, SSH, JSON logs, and Ubuntu.">
+</a>
 
 ![Investigation approach: observe SSH telemetry, investigate sources and authentication outcomes, and build repeatable SPL detection logic](assets/investigation-flow.gif)
 
