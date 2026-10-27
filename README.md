@@ -28,14 +28,7 @@ Investigated JSON-based SSH logs, reconstructed suspicious-source activity, and 
 
 ## What I'm working with
 
-| Area | Tools & technologies |
-| :--- | :--- |
-| **Programming** | `Python` |
-| **Linux environments** | `Kali Linux` · `Ubuntu` |
-| **SIEM & detection** | `Splunk Enterprise` · `SPL` |
-| **Network analysis & discovery** | `Wireshark` · `Nmap` |
-| **Web testing & discovery** | `Burp Suite` · `Gobuster` |
-| **Penetration testing** | `Metasploit` |
+<img src="assets/toolkit.gif" width="100%" alt="Programming: Python. Linux environments: Kali Linux and Ubuntu. Network analysis and discovery: Wireshark and Nmap. Web testing and discovery: Burp Suite and Gobuster. Penetration testing: Metasploit.">
 
 ## How I approach a case
 
