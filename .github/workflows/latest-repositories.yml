@@ -1,0 +1,122 @@
+name: Refresh latest repositories
+
+'on':
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/latest-repositories.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-latest-repositories
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Update repository cards
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const startMarker = '<!-- LATEST-REPOSITORIES:START -->';
+            const endMarker = '<!-- LATEST-REPOSITORIES:END -->';
+            const directory = 'assets/latest-repositories/';
+            const { data: metadata } = await github.rest.repos.get({ owner, repo });
+            const branch = metadata.default_branch;
+            const { data: ref } = await github.rest.git.getRef({ owner, repo, ref: `heads/${branch}` });
+            const head = ref.object.sha;
+            const { data: commit } = await github.rest.git.getCommit({ owner, repo, commit_sha: head });
+            const { data: tree } = await github.rest.git.getTree({ owner, repo, tree_sha: commit.tree.sha, recursive: '1' });
+            if (tree.truncated) throw new Error('Repository tree is incomplete; refusing a partial update.');
+            const { data: readmeFile } = await github.rest.repos.getContent({ owner, repo, path: 'README.md', ref: head });
+            const readme = Buffer.from(readmeFile.content, 'base64').toString('utf8');
+            if (readme.split(startMarker).length !== 2 || readme.split(endMarker).length !== 2) {
+              throw new Error('Expected exactly one latest-repositories section.');
+            }
+            if (readme.indexOf(startMarker) > readme.indexOf(endMarker)) throw new Error('Invalid section markers.');
+            const all = await github.paginate(github.rest.repos.listForUser, {
+              username: owner, type: 'owner', sort: 'updated', direction: 'desc', per_page: 100
+            });
+            const projects = all.filter(item => !item.private && !item.fork && !item.archived && !item.disabled
+              && item.owner.login.toLowerCase() === owner.toLowerCase()
+              && item.name.toLowerCase() !== repo.toLowerCase())
+              .sort((a, b) => b.updated_at.localeCompare(a.updated_at) || a.name.localeCompare(b.name))
+              .slice(0, 4);
+            const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({
+              '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;'
+            }[c]));
+            function wrap(value, limit, maxLines) {
+              const chars = [...String(value).replace(/\s+/g, ' ').trim()];
+              const lines = []; let line = ''; let width = 0;
+              for (const char of chars) {
+                const unit = char.charCodeAt(0) > 127 ? 2 : 1;
+                if (width + unit > limit) {
+                  const space = line.lastIndexOf(' ');
+                  let carry = '';
+                  if (space > line.length / 2) { carry = line.slice(space + 1); line = line.slice(0, space); }
+                  lines.push(line.trimEnd()); line = carry;
+                  width = [...carry].reduce((sum, value) => sum + (value.charCodeAt(0) > 127 ? 2 : 1), 0);
+                  if (lines.length === maxLines) {
+                    lines[maxLines - 1] = lines[maxLines - 1].replace(/\s+\S*$/, '') + '...';
+                    return lines;
+                  }
+                }
+                line += char; width += unit;
+              }
+              if (line) lines.push(line.trim());
+              return lines;
+            }
+            function card(item) {
+              const title = wrap(item.name.replace(/[-_]/g, ' '), 58, 2);
+              const description = wrap(item.description || 'Explore the project, its documentation, and recent work.', 100, 2);
+              const titleNodes = title.map((line, i) => `<text x="38" y="${90+i*39}" font-size="33" font-weight="700" fill="#EFF6FA">${escape(line)}</text>`).join('');
+              const descriptionY = title.length > 1 ? 169 : 143;
+              const descriptionNodes = description.map((line, i) => `<text x="39" y="${descriptionY+i*28}" font-size="21" fill="#9CB1BE">${escape(line)}</text>`).join('');
+              return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-label="${escape(item.name)}">
+            <title>${escape(item.name)}</title><rect x="1" y="1" width="1198" height="258" rx="18" fill="#101F2A" stroke="#253D4D" stroke-width="2"/>
+            <rect x="1" y="29" width="6" height="200" fill="#58DDC5"/>
+            <g font-family="Segoe UI,Arial,sans-serif"><text x="39" y="37" font-size="14" font-weight="700" letter-spacing="2" fill="#58DDC5">PUBLIC REPOSITORY</text>
+            ${titleNodes}${descriptionNodes}
+            <text x="39" y="232" font-size="16" fill="#F5B864">${escape(item.language || 'Project & documentation')}</text>
+            <text x="490" y="232" font-size="16" fill="#9CB1BE">Updated ${escape(item.updated_at.slice(0,10))}</text>
+            <text x="835" y="232" font-size="16" fill="#9CB1BE">Stars ${Number(item.stargazers_count) || 0} / Forks ${Number(item.forks_count) || 0}</text>
+            <text x="1104" y="232" font-size="19" fill="#58DDC5">&gt;</text></g></svg>\n`;
+            }
+            const cards = projects.map(item => ({
+              path: directory + String(item.id) + '.svg',
+              content: card(item), item
+            }));
+            const block = cards.length ? cards.map(({ path, item }) =>
+              `<a href="https://github.com/${encodeURIComponent(owner)}/${encodeURIComponent(item.name)}">\n  <img src="${path}" width="100%" alt="${escape(item.name + (item.description ? ' — ' + item.description : ''))}">\n</a>`
+            ).join('\n\n') : 'Public projects will appear here as repositories are added.';
+            const replacement = startMarker + '\n\n' + block + '\n\n' + endMarker;
+            const updated = readme.slice(0, readme.indexOf(startMarker)) + replacement
+              + readme.slice(readme.indexOf(endMarker) + endMarker.length);
+            const sha = value => require('crypto').createHash('sha1')
+              .update(Buffer.from(`blob ${Buffer.byteLength(value)}\0`)).update(value).digest('hex');
+            const existing = new Map(tree.tree.map(entry => [entry.path, entry.sha]));
+            const desired = [{ path: 'README.md', content: updated }, ...cards.map(({ path, content }) => ({ path, content }))];
+            const changes = desired.filter(file => existing.get(file.path) !== sha(file.content))
+              .map(file => ({ ...file, mode: '100644', type: 'blob' }));
+            const activePaths = new Set(cards.map(file => file.path));
+            for (const file of tree.tree) {
+              if (file.type === 'blob' && file.path.startsWith(directory) && file.path.endsWith('.svg') && !activePaths.has(file.path)) {
+                changes.push({ path: file.path, mode: '100644', type: 'blob', sha: null });
+              }
+            }
+            if (!changes.length) { core.info('Latest repositories are already current.'); return; }
+            const { data: newTree } = await github.rest.git.createTree({ owner, repo, base_tree: commit.tree.sha, tree: changes });
+            const { data: newCommit } = await github.rest.git.createCommit({
+              owner, repo, message: 'Refresh latest public repositories', tree: newTree.sha, parents: [head]
+            });
+            await github.rest.git.updateRef({ owner, repo, ref: `heads/${branch}`, sha: newCommit.sha, force: false });
+            core.info(`Updated ${projects.length} public repository cards.`);

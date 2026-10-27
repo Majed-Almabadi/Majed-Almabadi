@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-label="Detecting-SSH-Brute-Force-Attempts-with-Splunk">
+<title>Detecting-SSH-Brute-Force-Attempts-with-Splunk</title><rect x="1" y="1" width="1198" height="258" rx="18" fill="#101F2A" stroke="#253D4D" stroke-width="2"/>
+<rect x="1" y="29" width="6" height="200" fill="#58DDC5"/>
+<g font-family="Segoe UI,Arial,sans-serif"><text x="39" y="37" font-size="14" font-weight="700" letter-spacing="2" fill="#58DDC5">PUBLIC REPOSITORY</text>
+<text x="38" y="90" font-size="33" font-weight="700" fill="#EFF6FA">Detecting SSH Brute Force Attempts with Splunk</text><text x="39" y="143" font-size="21" fill="#9CB1BE">This project demonstrates the analysis of SSH authentication logs using Splunk Enterprise. The</text><text x="39" y="171" font-size="21" fill="#9CB1BE">objective was to identify failed login attempts, detect potential brute-force activity,...</text>
+<text x="39" y="232" font-size="16" fill="#F5B864">Project &amp; documentation</text>
+<text x="490" y="232" font-size="16" fill="#9CB1BE">Updated 2026-10-27</text>
+<text x="835" y="232" font-size="16" fill="#9CB1BE">Stars 1 / Forks 0</text>
+<text x="1104" y="232" font-size="19" fill="#58DDC5">&gt;</text></g></svg>
