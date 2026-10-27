@@ -34,7 +34,7 @@ Investigated JSON-based SSH logs, reconstructed suspicious-source activity, and 
 | **Linux environments** | `Kali Linux` · `Ubuntu` |
 | **SIEM & detection** | `Splunk Enterprise` · `SPL` |
 | **Network analysis & discovery** | `Wireshark` · `Nmap` |
-| **Web application testing** | `Burp Suite` |
+| **Web testing & discovery** | `Burp Suite` · `Gobuster` |
 | **Penetration testing** | `Metasploit` |
 
 ## How I approach a case
