@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/hero-graduate.gif" width="100%" alt="Majed Almabadi — recent graduate seeking an entry-level SOC L1, IT support, or help desk opportunity. Building skills. Ready to contribute.">
+  <img src="assets/hero-graduate-centered.gif" width="100%" alt="Majed Almabadi — recent graduate seeking an entry-level SOC L1, IT support, or help desk opportunity. Building skills. Ready to contribute.">
 </p>
 
 <p align="center">
