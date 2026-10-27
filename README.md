@@ -25,13 +25,7 @@
 ## Project spotlight
 
 <a href="https://github.com/Majed-Almabadi/Detecting-SSH-Brute-Force-Attempts-with-Splunk">
-  <img src="assets/case-ssh.png" width="100%" alt="SSH brute-force investigation: 2400 events reviewed, 1216 failed authentication events, and suspicious source 10.0.0.25. Open the project.">
-</a>
-
-**[SSH Authentication Log Analysis & Threat Hunting Using Splunk](https://github.com/Majed-Almabadi/Detecting-SSH-Brute-Force-Attempts-with-Splunk)**
-
-<a href="https://github.com/Majed-Almabadi/Detecting-SSH-Brute-Force-Attempts-with-Splunk">
-  <img src="assets/ssh-case-notes.gif" width="100%" alt="Investigated JSON-based SSH logs, reconstructed suspicious-source activity, and documented eight SPL searches with screenshots. Source 10.0.0.25 had 174 failed authentication attempts and 16 successful logins. Tools: Splunk Enterprise, SPL, SSH, JSON logs, and Ubuntu.">
+  <img src="assets/project-spotlight.gif" width="100%" alt="SSH brute-force investigation using Splunk: 2400 total events, 1216 failed authentication events, suspicious source 10.0.0.25 with 174 failed authentication attempts and 16 successful logins. Eight SPL searches, screenshots, and report. Tools: Splunk Enterprise, SPL, SSH, JSON logs, Ubuntu. Open the project.">
 </a>
 
 ## Tools & technologies
