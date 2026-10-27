@@ -28,11 +28,14 @@ Investigated JSON-based SSH logs, reconstructed suspicious-source activity, and 
 
 ## What I'm working with
 
-| Detection & analysis | Systems & telemetry | Investigation practice |
-| :--- | :--- | :--- |
-| Splunk Enterprise · SPL searches | Ubuntu · SSH · JSON logs | Authentication outcome analysis |
-| Repeated-failure detection | Source and destination hosts | Timeline reconstruction |
-| Reusable alert logic | Zeek-style SSH fields | Evidence and report writing |
+| Area | Tools & technologies |
+| :--- | :--- |
+| **Programming** | `Python` |
+| **Linux environments** | `Kali Linux` · `Ubuntu` |
+| **SIEM & detection** | `Splunk Enterprise` · `SPL` |
+| **Network analysis & discovery** | `Wireshark` · `Nmap` |
+| **Web application testing** | `Burp Suite` |
+| **Penetration testing** | `Metasploit` |
 
 ## How I approach a case
 
